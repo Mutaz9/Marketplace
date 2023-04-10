@@ -31,5 +31,5 @@ Best Practices (5 points):
 
 Creative Portion (20 points)
 
-(Approved by Tony Tong)![image](https://user-images.githubusercontent.com/89868757/230832406-6d734372-eeb6-4d1e-aec2-f1c13f794a87.png)
+(Approved by Tony Tong)
 
