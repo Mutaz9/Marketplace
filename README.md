@@ -6,7 +6,7 @@ REPLACE-THIS-TEXT-WITH-YOUR-PARTNERS-NAME-STUDENT-ID-AND-GITHUB-USERNAME
 
 
 
-**Rubric:**
+**Rubric (image.png is the screenshot of it. Pushed on 4/10 at 12:30AM):**
 
 Rubric turned in on time (5 points)
 
