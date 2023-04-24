@@ -67,10 +67,11 @@ class User extends Authenticatable
             ]);
             
             Mail::to($user->email)->send(new NewUserWelcomeMail());
-        }
-
-
-        );
+        });
+        static::deleting(function($user) {
+            $user->profile()->delete();
+            $user->posts()->delete();
+        });
     }
 
 }

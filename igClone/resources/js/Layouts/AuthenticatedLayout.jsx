@@ -19,7 +19,10 @@ export default function Authenticated({ user, children }) {
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
                                 <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                                    <ApplicationLogo className="inline-block pr-3 h-9 w-auto fill-current text-gray-800" />
+                                    <p className="pl-3 inline-block border-l-2">
+                                        Muski Marketplace
+                                    </p>
                                 </Link>
                             </div>
                         </div>
@@ -173,34 +176,34 @@ export default function Authenticated({ user, children }) {
                     </div>
                     <div className="inline-block">
                         <Link
-                            className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 inline-block hover:bg-slate-300 hover:cursor-pointer duration-500"
+                            className=" text-red-400 pointer-events-none max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 inline-block hover:bg-slate-300 hover:cursor-pointer duration-500"
                             href={route("categories")}
                         >
-                            Categories
+                            (Categories)
                         </Link>
                     </div>
                     <div className="inline-block">
                         <Link
-                            className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 inline-block hover:bg-slate-300 hover:cursor-pointer duration-500"
+                            className="text-red-400 pointer-events-none max-w-7xl  mx-auto py-6 px-4 sm:px-6 lg:px-8 inline-block hover:bg-slate-300 hover:cursor-pointer duration-500"
                             href={route("purchases")}
                         >
-                            Purchases
+                            (Purchases)
                         </Link>
                     </div>
                     <div className="inline-block">
                         <Link
-                            className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 inline-block hover:bg-slate-300 hover:cursor-pointer duration-500"
+                            className="text-red-400 pointer-events-none max-w-7xl  mx-auto py-6 px-4 sm:px-6 lg:px-8 inline-block hover:bg-slate-300 hover:cursor-pointer duration-500"
                             href={route("sales")}
                         >
-                            Sales
+                            (Sales)
                         </Link>
                     </div>
                     <div className="inline-block ">
                         <Link
-                            className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 inline-block hover:bg-slate-300 hover:cursor-pointer duration-500"
+                            className="text-red-400 pointer-events-none max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 inline-block hover:bg-slate-300 hover:cursor-pointer duration-500"
                             href={route("notification")}
                         >
-                            Notifications
+                            (Notifications)
                         </Link>
                     </div>
                 </div>

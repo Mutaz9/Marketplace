@@ -9,6 +9,7 @@ use App\Models\User;
 use Intervention\Image\Facades\Image;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Profile;
 
 class PostsController extends Controller
 {
@@ -27,6 +28,11 @@ class PostsController extends Controller
         $users = auth()->user()->following()->pluck('profiles.user_id');
 
         $posts = Post::whereIn('user_id', $users)->with('user')->latest()->get(); //user id is in users
+
+        if (sizeof($posts) == 0) {
+            $allProfiles = Profile::all()->load(['user', 'user.posts']);
+            return Inertia::render('LoggedInPages/UsersPreview')->with(compact('allProfiles'));
+        }
 
         foreach ($posts as &$post) {
             $user = $post->user;
@@ -51,8 +57,9 @@ class PostsController extends Controller
             'caption' => request('caption'),
             'image' => $imagePath,
             'categories' => implode(request('categories')),
+            'price' => request('price')
         ]);
-
+        
         return redirect('/profile/' . auth()->user()->id);
 
 
@@ -66,8 +73,8 @@ class PostsController extends Controller
 
     public function show(\App\Models\Post $post) {
 
-        $username = $post->user->username;
+        $user = $post->user->load('profile');
 
-        return Inertia::render('Posts/Show')->with(compact(['post', 'username'])); //same as Inertia::render('Posts/Show')->with(['post'=>$post]);
+        return Inertia::render('Posts/Show')->with(compact(['post', 'user'])); //same as Inertia::render('Posts/Show')->with(['post'=>$post]);
     }
 }

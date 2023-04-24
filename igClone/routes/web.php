@@ -3,6 +3,8 @@
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ChirpController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PaymentController;
+
 use App\Http\Controllers\FollowsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +25,8 @@ use App\Models\Category;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -105,5 +109,20 @@ Route::get('/post/create', [PostsController::class, 'create'])->name('post.creat
 Route::post('/post', [PostsController::class, 'store'])->name('post');
 
 Route::get('post/{post}', [PostsController::class, 'show'])->name('post.show');
+
+Route::post('pay', [PaymentController::class, 'pay'])->name('payment');
+Route::get('success', [PaymentController::class, 'success']);
+Route::get('error', [PaymentController::class, 'error']);
+
+// Route::get('/paymentSuccess', function() {
+//     return Inertia::render('Posts/Search')->with(compact(['categories']));
+// })->name('payment.success');
+
+// Route::get('handle-payment', 'PayPalPaymentController@handlePayment')->name('make.payment');
+
+// Route::get('cancel-payment', 'PayPalPaymentController@paymentCancel')->name('cancel.payment');
+
+// Route::get('payment-success', 'PayPalPaymentController@paymentSuccess')->name('success.payment');
+
 
 require __DIR__.'/auth.php';

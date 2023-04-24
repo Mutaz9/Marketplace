@@ -13,6 +13,7 @@ export default function Create({ auth, categories }) {
         caption: "",
         image: "",
         categories: [],
+        price: "",
     });
 
     const handleClick = (e, category) => {
@@ -82,6 +83,21 @@ export default function Create({ auth, categories }) {
                             className="mt-1 block w-full"
                             isFocused={true}
                             onChange={(e) => setData("caption", e.target.value)}
+                        />
+
+                        <InputError message={errors.caption} className="mt-2" />
+                    </div>
+                    <div className="mt-4">
+                        <InputLabel htmlFor="price" value="Price" />
+
+                        <TextInput
+                            id="price"
+                            name="price"
+                            value={data.price}
+                            type="number"
+                            className="mt-1 block w-full"
+                            isFocused={true}
+                            onChange={(e) => setData("price", e.target.value)}
                         />
 
                         <InputError message={errors.caption} className="mt-2" />
